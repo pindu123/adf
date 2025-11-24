@@ -1,0 +1,30 @@
+{
+	"name": "incrementalStorageTrigger",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Started",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "incrementalDataLoadDifferentFiles",
+					"type": "PipelineReference"
+				},
+				"parameters": {
+					"pfolder": "@triggerBody().folderPath",
+					"pfile": "@triggerBody().fileName",
+					"puploadedTime": "@triggerBody().eventTime"
+				}
+			}
+		],
+		"type": "BlobEventsTrigger",
+		"typeProperties": {
+			"blobPathBeginsWith": "/input/blobs/sales/",
+			"blobPathEndsWith": ".csv",
+			"ignoreEmptyBlobs": true,
+			"scope": "/subscriptions/4d829107-c197-4465-8b1b-676ebd2084d8/resourceGroups/abc/providers/Microsoft.Storage/storageAccounts/strgacc670",
+			"events": [
+				"Microsoft.Storage.BlobCreated"
+			]
+		}
+	}
+}

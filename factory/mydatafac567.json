@@ -1,0 +1,9 @@
+{
+	"name": "mydatafac567",
+	"location": "eastasia",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "ce6e6caf-3dd9-4a06-abdc-110310e01cb0",
+		"tenantId": "0cdcfdc0-5f93-472d-adee-9ad68a1af344"
+	}
+}
