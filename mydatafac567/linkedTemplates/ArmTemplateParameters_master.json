@@ -1,0 +1,45 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "mydatafac567"
+		},
+		"AzureDataLakeStorage1_accountKey": {
+			"value": ""
+		},
+		"AzureSqlDatabase1_password": {
+			"value": ""
+		},
+		"AzureDataLakeStorage1_properties_typeProperties_url": {
+			"value": "https://strgacc670.dfs.core.windows.net/"
+		},
+		"AzureSqlDatabase1_properties_typeProperties_server": {
+			"value": "mydtaserver.database.windows.net"
+		},
+		"AzureSqlDatabase1_properties_typeProperties_database": {
+			"value": "mydb1234"
+		},
+		"AzureSqlDatabase1_properties_typeProperties_userName": {
+			"value": "rootuser"
+		},
+		"incrementalStorageTrigger_properties_incrementalDataLoadDifferentFiles_parameters_pfolder": {
+			"value": "@triggerBody().folderPath"
+		},
+		"incrementalStorageTrigger_properties_incrementalDataLoadDifferentFiles_parameters_pfile": {
+			"value": "@triggerBody().fileName"
+		},
+		"incrementalStorageTrigger_properties_incrementalDataLoadDifferentFiles_parameters_puploadedTime": {
+			"value": "@triggerBody().eventTime"
+		},
+		"incrementalStorageTrigger_properties_typeProperties_scope": {
+			"value": "/subscriptions/4d829107-c197-4465-8b1b-676ebd2084d8/resourceGroups/abc/providers/Microsoft.Storage/storageAccounts/strgacc670"
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}
