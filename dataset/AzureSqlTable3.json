@@ -1,0 +1,60 @@
+{
+	"name": "AzureSqlTable3",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabase2",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "ConfigId",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "SourceDir",
+				"type": "nvarchar"
+			},
+			{
+				"name": "FilePattern",
+				"type": "nvarchar"
+			},
+			{
+				"name": "FileType",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Delimiter",
+				"type": "nvarchar"
+			},
+			{
+				"name": "HasHeader",
+				"type": "bit"
+			},
+			{
+				"name": "TargetTable",
+				"type": "nvarchar"
+			},
+			{
+				"name": "LoadType",
+				"type": "nvarchar"
+			},
+			{
+				"name": "ActiveFlag",
+				"type": "bit"
+			},
+			{
+				"name": "CreatedOn",
+				"type": "datetime",
+				"precision": 23,
+				"scale": 3
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "IngestionConfig"
+		}
+	}
+}
