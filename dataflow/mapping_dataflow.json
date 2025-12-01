@@ -19,11 +19,24 @@
 						"type": "DatasetReference"
 					},
 					"name": "sink1"
+				},
+				{
+					"dataset": {
+						"referenceName": "Json1",
+						"type": "DatasetReference"
+					},
+					"name": "sink2"
 				}
 			],
 			"transformations": [
 				{
 					"name": "select1"
+				},
+				{
+					"name": "derivedColumn1"
+				},
+				{
+					"name": "split1"
 				}
 			],
 			"scriptLines": [
@@ -43,26 +56,44 @@
 				"     validateSchema: false,",
 				"     ignoreNoFilesFound: false) ~> source1",
 				"source1 select(mapColumn(",
-				"          customer_name,",
+				"          customerName = customer_name,",
 				"          dob,",
-				"          pan_number,",
-				"          aadhaar_number,",
+				"          panNumber = pan_number,",
+				"          aadhaarNumber = aadhaar_number,",
 				"          mobile,",
 				"          gender,",
 				"          address,",
 				"          pincode,",
-				"          branch_id,",
-				"          updated_at",
+				"          branchId = branch_id,",
+				"          updatedAt = updated_at",
 				"     ),",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true) ~> select1",
-				"select1 sink(allowSchemaDrift: true,",
+				"select1 derive(panNumber = iif(isNull(panNumber), 'Na', panNumber),",
+				"          aadhaarNumber = iif(isNull(aadhaarNumber),\"00000\",aadhaarNumber),",
+				"          gender = iif(isNull(gender), \"Na\", gender),",
+				"          Age = currentDate()-toDate(dob),",
+				"          panStatus = iif(length(panNumber)==10, \"valid\", \"InValid\"),",
+				"          aadharStatus = iif(length(aadhaarNumber)==12, \"Valid\", \"InValid\"),",
+				"          column1 = iif(isNull(branchId) || branchId == '', 'INVALID_BRANCH', 'VALID_BRANCH')\r",
+				") ~> derivedColumn1",
+				"derivedColumn1 split(panStatus=='Valid'&&aadharStatus=='Valid' ,",
+				"     disjoint: false) ~> split1@(yes, no)",
+				"split1@yes sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     umask: 0022,",
 				"     preCommands: [],",
 				"     postCommands: [],",
 				"     skipDuplicateMapInputs: true,",
-				"     skipDuplicateMapOutputs: true) ~> sink1"
+				"     skipDuplicateMapOutputs: true) ~> sink1",
+				"split1@no sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     umask: 0022,",
+				"     preCommands: [],",
+				"     postCommands: [],",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     saveOrder: 1) ~> sink2"
 			]
 		}
 	}
