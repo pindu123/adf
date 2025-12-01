@@ -1,0 +1,36 @@
+{
+	"name": "mapping_dataflow",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "bankData",
+						"type": "DatasetReference"
+					},
+					"name": "source1"
+				}
+			],
+			"sinks": [],
+			"transformations": [],
+			"scriptLines": [
+				"source(output(",
+				"          customer_name as string,",
+				"          dob as string,",
+				"          pan_number as string,",
+				"          aadhaar_number as string,",
+				"          mobile as string,",
+				"          gender as string,",
+				"          address as string,",
+				"          pincode as string,",
+				"          branch_id as string,",
+				"          updated_at as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false) ~> source1"
+			]
+		}
+	}
+}
