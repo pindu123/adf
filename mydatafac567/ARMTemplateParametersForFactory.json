@@ -35,6 +35,15 @@
 		"AzureSqlDatabase2_properties_typeProperties_userName": {
 			"value": "rootuser"
 		},
+		"NewFileArrivalTrigger_properties_PL_MappingDataFlow_parameters_FileName1": {
+			"value": "@triggerBody().fileName"
+		},
+		"NewFileArrivalTrigger_properties_PL_MappingDataFlow_parameters_folderpath": {
+			"value": "@triggerBody().folderPath"
+		},
+		"NewFileArrivalTrigger_properties_typeProperties_scope": {
+			"value": "/subscriptions/4d829107-c197-4465-8b1b-676ebd2084d8/resourceGroups/abc/providers/Microsoft.Storage/storageAccounts/strgacc670"
+		},
 		"incrementalStorageTrigger_properties_incrementalDataLoadDifferentFiles_parameters_pfolder": {
 			"value": "@triggerBody().folderPath"
 		},
@@ -45,12 +54,6 @@
 			"value": "@triggerBody().eventTime"
 		},
 		"incrementalStorageTrigger_properties_typeProperties_scope": {
-			"value": "/subscriptions/4d829107-c197-4465-8b1b-676ebd2084d8/resourceGroups/abc/providers/Microsoft.Storage/storageAccounts/strgacc670"
-		},
-		"NewFileArrivalTrigger_properties_PL_MappingDataFlow_parameters_FileName1": {
-			"value": "@triggerBody().fileName"
-		},
-		"NewFileArrivalTrigger_properties_typeProperties_scope": {
 			"value": "/subscriptions/4d829107-c197-4465-8b1b-676ebd2084d8/resourceGroups/abc/providers/Microsoft.Storage/storageAccounts/strgacc670"
 		}
 	}
