@@ -1,6 +1,11 @@
 {
-	"name": "pipeline1",
+	"name": "PL_MappingDataFlow",
 	"properties": {
+		"parameters": {
+			"FileName": {
+				"type": "string"
+			}
+		},
 		"annotations": []
 	}
 }
