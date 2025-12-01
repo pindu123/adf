@@ -11,7 +11,7 @@
 				},
 				"parameters": {
 					"FileName1": "@triggerBody().fileName",
-					"folderpath": "@triggerBody().folderPath"
+					"folderpath": "@join(skip(split(trigger().outputs.folderPath, '/'), 1), '/')"
 				}
 			}
 		],
