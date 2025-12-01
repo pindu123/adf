@@ -11,6 +11,9 @@
 		"AzureSqlDatabase1_password": {
 			"value": ""
 		},
+		"AzureSqlDatabase2_password": {
+			"value": ""
+		},
 		"AzureDataLakeStorage1_properties_typeProperties_url": {
 			"value": "https://strgacc670.dfs.core.windows.net/"
 		},
@@ -23,6 +26,15 @@
 		"AzureSqlDatabase1_properties_typeProperties_userName": {
 			"value": "rootuser"
 		},
+		"AzureSqlDatabase2_properties_typeProperties_server": {
+			"value": "server654.database.windows.net"
+		},
+		"AzureSqlDatabase2_properties_typeProperties_database": {
+			"value": "mydb908"
+		},
+		"AzureSqlDatabase2_properties_typeProperties_userName": {
+			"value": "rootuser"
+		},
 		"incrementalStorageTrigger_properties_incrementalDataLoadDifferentFiles_parameters_pfolder": {
 			"value": "@triggerBody().folderPath"
 		},
@@ -33,6 +45,12 @@
 			"value": "@triggerBody().eventTime"
 		},
 		"incrementalStorageTrigger_properties_typeProperties_scope": {
+			"value": "/subscriptions/4d829107-c197-4465-8b1b-676ebd2084d8/resourceGroups/abc/providers/Microsoft.Storage/storageAccounts/strgacc670"
+		},
+		"NewFileArrivalTrigger_properties_PL_MappingDataFlow_parameters_FileName1": {
+			"value": "@triggerBody().fileName"
+		},
+		"NewFileArrivalTrigger_properties_typeProperties_scope": {
 			"value": "/subscriptions/4d829107-c197-4465-8b1b-676ebd2084d8/resourceGroups/abc/providers/Microsoft.Storage/storageAccounts/strgacc670"
 		},
 		"containerUri": {

@@ -15,6 +15,10 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'AzureSqlDatabase1'"
 		},
+		"AzureSqlDatabase2_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'AzureSqlDatabase2'"
+		},
 		"AzureDataLakeStorage1_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://strgacc670.dfs.core.windows.net/"
@@ -31,6 +35,18 @@
 			"type": "string",
 			"defaultValue": "rootuser"
 		},
+		"AzureSqlDatabase2_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "server654.database.windows.net"
+		},
+		"AzureSqlDatabase2_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "mydb908"
+		},
+		"AzureSqlDatabase2_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "rootuser"
+		},
 		"incrementalStorageTrigger_properties_incrementalDataLoadDifferentFiles_parameters_pfolder": {
 			"type": "string",
 			"defaultValue": "@triggerBody().folderPath"
@@ -44,6 +60,14 @@
 			"defaultValue": "@triggerBody().eventTime"
 		},
 		"incrementalStorageTrigger_properties_typeProperties_scope": {
+			"type": "string",
+			"defaultValue": "/subscriptions/4d829107-c197-4465-8b1b-676ebd2084d8/resourceGroups/abc/providers/Microsoft.Storage/storageAccounts/strgacc670"
+		},
+		"NewFileArrivalTrigger_properties_PL_MappingDataFlow_parameters_FileName1": {
+			"type": "string",
+			"defaultValue": "@triggerBody().fileName"
+		},
+		"NewFileArrivalTrigger_properties_typeProperties_scope": {
 			"type": "string",
 			"defaultValue": "/subscriptions/4d829107-c197-4465-8b1b-676ebd2084d8/resourceGroups/abc/providers/Microsoft.Storage/storageAccounts/strgacc670"
 		},
@@ -80,6 +104,9 @@
 					"AzureSqlDatabase1_password": {
 						"value": "[parameters('AzureSqlDatabase1_password')]"
 					},
+					"AzureSqlDatabase2_password": {
+						"value": "[parameters('AzureSqlDatabase2_password')]"
+					},
 					"AzureDataLakeStorage1_properties_typeProperties_url": {
 						"value": "[parameters('AzureDataLakeStorage1_properties_typeProperties_url')]"
 					},
@@ -91,6 +118,15 @@
 					},
 					"AzureSqlDatabase1_properties_typeProperties_userName": {
 						"value": "[parameters('AzureSqlDatabase1_properties_typeProperties_userName')]"
+					},
+					"AzureSqlDatabase2_properties_typeProperties_server": {
+						"value": "[parameters('AzureSqlDatabase2_properties_typeProperties_server')]"
+					},
+					"AzureSqlDatabase2_properties_typeProperties_database": {
+						"value": "[parameters('AzureSqlDatabase2_properties_typeProperties_database')]"
+					},
+					"AzureSqlDatabase2_properties_typeProperties_userName": {
+						"value": "[parameters('AzureSqlDatabase2_properties_typeProperties_userName')]"
 					},
 					"incrementalStorageTrigger_properties_incrementalDataLoadDifferentFiles_parameters_pfolder": {
 						"value": "[parameters('incrementalStorageTrigger_properties_incrementalDataLoadDifferentFiles_parameters_pfolder')]"
@@ -107,6 +143,32 @@
 				}
 			},
 			"dependsOn": []
+		},
+		{
+			"name": "mydatafac567_ArmTemplate_1",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_1.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"NewFileArrivalTrigger_properties_PL_MappingDataFlow_parameters_FileName1": {
+						"value": "[parameters('NewFileArrivalTrigger_properties_PL_MappingDataFlow_parameters_FileName1')]"
+					},
+					"NewFileArrivalTrigger_properties_typeProperties_scope": {
+						"value": "[parameters('NewFileArrivalTrigger_properties_typeProperties_scope')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'mydatafac567_ArmTemplate_0')]"
+			]
 		}
 	]
 }
