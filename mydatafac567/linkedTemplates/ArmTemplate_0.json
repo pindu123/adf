@@ -1197,9 +1197,9 @@
 						},
 						"userProperties": [],
 						"typeProperties": {
-							"variableName": "abcd",
+							"variableName": "xyz",
 							"value": {
-								"value": "@pipeline().parameters.FileName1",
+								"value": "@pipeline().parameters.folderpath",
 								"type": "Expression"
 							}
 						}
@@ -1218,6 +1218,9 @@
 				},
 				"variables": {
 					"abcd": {
+						"type": "String"
+					},
+					"xyz": {
 						"type": "String"
 					}
 				},
