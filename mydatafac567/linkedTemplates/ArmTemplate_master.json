@@ -53,7 +53,7 @@
 		},
 		"NewFileArrivalTrigger_properties_PL_MappingDataFlow_parameters_folderpath": {
 			"type": "string",
-			"defaultValue": "@triggerBody().folderPath"
+			"defaultValue": "@join(skip(split(trigger().outputs.folderPath, '/'), 1), '/')"
 		},
 		"NewFileArrivalTrigger_properties_typeProperties_scope": {
 			"type": "string",

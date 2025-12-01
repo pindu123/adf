@@ -578,10 +578,11 @@
 							"value": "@dataset().fileName",
 							"type": "Expression"
 						},
-						"fileSystem": {
+						"folderPath": {
 							"value": "@dataset().folderp",
 							"type": "Expression"
-						}
+						},
+						"fileSystem": "raw"
 					},
 					"columnDelimiter": ",",
 					"escapeChar": "\\",

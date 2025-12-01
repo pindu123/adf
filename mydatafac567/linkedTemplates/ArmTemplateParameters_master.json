@@ -39,7 +39,7 @@
 			"value": "@triggerBody().fileName"
 		},
 		"NewFileArrivalTrigger_properties_PL_MappingDataFlow_parameters_folderpath": {
-			"value": "@triggerBody().folderPath"
+			"value": "@join(skip(split(trigger().outputs.folderPath, '/'), 1), '/')"
 		},
 		"NewFileArrivalTrigger_properties_typeProperties_scope": {
 			"value": "/subscriptions/4d829107-c197-4465-8b1b-676ebd2084d8/resourceGroups/abc/providers/Microsoft.Storage/storageAccounts/strgacc670"
