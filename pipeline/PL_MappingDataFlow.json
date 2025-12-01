@@ -5,6 +5,8 @@
 			{
 				"name": "Data flow1",
 				"type": "ExecuteDataFlow",
+				"state": "Inactive",
+				"onInactiveMarkAs": "Succeeded",
 				"dependsOn": [],
 				"policy": {
 					"timeout": "0.12:00:00",
@@ -23,6 +25,10 @@
 								"fileName": {
 									"value": "@pipeline().parameters.FileName1",
 									"type": "Expression"
+								},
+								"folderp": {
+									"value": "@pipeline().parameters.folderpath",
+									"type": "Expression"
 								}
 							}
 						}
@@ -33,6 +39,23 @@
 					},
 					"traceLevel": "Fine"
 				}
+			},
+			{
+				"name": "Set variable1",
+				"type": "SetVariable",
+				"dependsOn": [],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "abcd",
+					"value": {
+						"value": "@pipeline().parameters.FileName1",
+						"type": "Expression"
+					}
+				}
 			}
 		],
 		"parameters": {
@@ -41,6 +64,11 @@
 			},
 			"folderpath": {
 				"type": "string"
+			}
+		},
+		"variables": {
+			"abcd": {
+				"type": "String"
 			}
 		},
 		"annotations": []

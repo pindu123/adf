@@ -8,6 +8,9 @@
 		"parameters": {
 			"fileName": {
 				"type": "string"
+			},
+			"folderp": {
+				"type": "string"
 			}
 		},
 		"annotations": [],
@@ -19,7 +22,10 @@
 					"value": "@dataset().fileName",
 					"type": "Expression"
 				},
-				"folderPath": "kyc",
+				"folderPath": {
+					"value": "@dataset().folderp",
+					"type": "Expression"
+				},
 				"fileSystem": "raw"
 			},
 			"columnDelimiter": ",",
