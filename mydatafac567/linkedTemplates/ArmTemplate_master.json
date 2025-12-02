@@ -11,6 +11,10 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'accountKey' of 'AzureDataLakeStorage1'"
 		},
+		"AzureSql_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'AzureSql'"
+		},
 		"AzureSqlDatabase1_password": {
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'AzureSqlDatabase1'"
@@ -22,6 +26,18 @@
 		"AzureDataLakeStorage1_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://strgacc670.dfs.core.windows.net/"
+		},
+		"AzureSql_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "sqlserver12349.database.windows.net"
+		},
+		"AzureSql_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "mydb"
+		},
+		"AzureSql_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "rootuser"
 		},
 		"AzureSqlDatabase1_properties_typeProperties_server": {
 			"type": "string",
@@ -105,6 +121,9 @@
 					"AzureDataLakeStorage1_accountKey": {
 						"value": "[parameters('AzureDataLakeStorage1_accountKey')]"
 					},
+					"AzureSql_password": {
+						"value": "[parameters('AzureSql_password')]"
+					},
 					"AzureSqlDatabase1_password": {
 						"value": "[parameters('AzureSqlDatabase1_password')]"
 					},
@@ -113,6 +132,15 @@
 					},
 					"AzureDataLakeStorage1_properties_typeProperties_url": {
 						"value": "[parameters('AzureDataLakeStorage1_properties_typeProperties_url')]"
+					},
+					"AzureSql_properties_typeProperties_server": {
+						"value": "[parameters('AzureSql_properties_typeProperties_server')]"
+					},
+					"AzureSql_properties_typeProperties_database": {
+						"value": "[parameters('AzureSql_properties_typeProperties_database')]"
+					},
+					"AzureSql_properties_typeProperties_userName": {
+						"value": "[parameters('AzureSql_properties_typeProperties_userName')]"
 					},
 					"AzureSqlDatabase1_properties_typeProperties_server": {
 						"value": "[parameters('AzureSqlDatabase1_properties_typeProperties_server')]"

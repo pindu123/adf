@@ -8,6 +8,9 @@
 		"AzureDataLakeStorage1_accountKey": {
 			"value": ""
 		},
+		"AzureSql_password": {
+			"value": ""
+		},
 		"AzureSqlDatabase1_password": {
 			"value": ""
 		},
@@ -16,6 +19,15 @@
 		},
 		"AzureDataLakeStorage1_properties_typeProperties_url": {
 			"value": "https://strgacc670.dfs.core.windows.net/"
+		},
+		"AzureSql_properties_typeProperties_server": {
+			"value": "sqlserver12349.database.windows.net"
+		},
+		"AzureSql_properties_typeProperties_database": {
+			"value": "mydb"
+		},
+		"AzureSql_properties_typeProperties_userName": {
+			"value": "rootuser"
 		},
 		"AzureSqlDatabase1_properties_typeProperties_server": {
 			"value": "mydtaserver.database.windows.net"
