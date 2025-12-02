@@ -140,18 +140,18 @@
 				"     insertable:false,",
 				"     updateable:true,",
 				"     upsertable:false,",
-				"     keys:['surrogateKey_1'],",
+				"     keys:['surrogateKey'],",
 				"     format: 'table',",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true,",
 				"     saveOrder: 1,",
 				"     errorHandlingOption: 'stopOnFirstError',",
 				"     mapColumn(",
+				"          surrogateKey = surrogateKey_1,",
 				"          customerID = customerID_1,",
 				"          Name = Name_1,",
 				"          City = City_1,",
-				"          isActive = isActive_1,",
-				"          surrogateKey = surrogateKey_1",
+				"          isActive = isActive_1",
 				"     )) ~> sink2"
 			]
 		}
