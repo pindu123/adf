@@ -28,7 +28,7 @@
 			],
 			"scriptLines": [
 				"source(output(",
-				"          CustomerID as string,",
+				"          CustomerID as integer,",
 				"          Name as string,",
 				"          City as string",
 				"     ),",
@@ -51,7 +51,12 @@
 				"     format: 'table',",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true,",
-				"     errorHandlingOption: 'stopOnFirstError') ~> sink1"
+				"     errorHandlingOption: 'stopOnFirstError',",
+				"     mapColumn(",
+				"          CustomerID,",
+				"          Name,",
+				"          City",
+				"     )) ~> sink1"
 			]
 		}
 	}
