@@ -150,7 +150,8 @@
 				"          customerID = customerID_1,",
 				"          Name = Name_1,",
 				"          City = City_1,",
-				"          isActive = isActive_1",
+				"          isActive = isActive_1,",
+				"          surrogateKey = surrogateKey_1",
 				"     )) ~> sink2"
 			]
 		}
