@@ -145,7 +145,13 @@
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true,",
 				"     saveOrder: 1,",
-				"     errorHandlingOption: 'stopOnFirstError') ~> sink2"
+				"     errorHandlingOption: 'stopOnFirstError',",
+				"     mapColumn(",
+				"          customerID = customerID_1,",
+				"          Name = Name_1,",
+				"          City = City_1,",
+				"          isActive = isActive_1",
+				"     )) ~> sink2"
 			]
 		}
 	}
