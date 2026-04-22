@@ -1,0 +1,98 @@
+{
+	"name": "dataflow3",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "billdata",
+						"type": "DatasetReference"
+					},
+					"name": "source1"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "AzureSqlTable11",
+						"type": "DatasetReference"
+					},
+					"name": "sink1"
+				},
+				{
+					"dataset": {
+						"referenceName": "AzureSqlTable12",
+						"type": "DatasetReference"
+					},
+					"name": "sink2"
+				}
+			],
+			"transformations": [
+				{
+					"name": "split1"
+				}
+			],
+			"scriptLines": [
+				"source(output(",
+				"          BillingID as string,",
+				"          SubscriptionID as string,",
+				"          CustomerID as string,",
+				"          BillingDate as date,",
+				"          Amount as integer,",
+				"          Discount as integer,",
+				"          Tax as integer,",
+				"          FinalAmount as integer,",
+				"          PaymentMethod as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false) ~> source1",
+				"source1 split(isDate(toString(BillingDate), 'yyyy-mm-dd') && isNull(BillingID) && isNull(SubscriptionID)&&isNull(CustomerID)&&isNull(Amount)&&isNull(Discount)&&isNull(Tax)&&isNull(FinalAmount)&&isNull(PaymentMethod),",
+				"     disjoint: false) ~> split1@(errorrows, good)",
+				"split1@errorrows sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     input(",
+				"          BillingID as string,",
+				"          SubscriptionID as string,",
+				"          CustomerID as string,",
+				"          BillingDate as date,",
+				"          Amount as integer,",
+				"          Discount as integer,",
+				"          Tax as integer,",
+				"          FinalAmount as integer,",
+				"          PaymentMethod as string",
+				"     ),",
+				"     deletable:false,",
+				"     insertable:true,",
+				"     updateable:false,",
+				"     upsertable:false,",
+				"     format: 'table',",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     errorHandlingOption: 'stopOnFirstError') ~> sink1",
+				"split1@good sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     input(",
+				"          BillingID as string,",
+				"          SubscriptionID as string,",
+				"          CustomerID as string,",
+				"          BillingDate as date,",
+				"          Amount as integer,",
+				"          Discount as integer,",
+				"          Tax as integer,",
+				"          FinalAmount as integer,",
+				"          PaymentMethod as string",
+				"     ),",
+				"     deletable:false,",
+				"     insertable:true,",
+				"     updateable:false,",
+				"     upsertable:false,",
+				"     format: 'table',",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     errorHandlingOption: 'stopOnFirstError') ~> sink2"
+			]
+		}
+	}
+}

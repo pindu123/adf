@@ -1,0 +1,57 @@
+{
+	"name": "AzureSqlTable11",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabase4",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "BillingID",
+				"type": "varchar"
+			},
+			{
+				"name": "SubscriptionID",
+				"type": "varchar"
+			},
+			{
+				"name": "CustomerID",
+				"type": "varchar"
+			},
+			{
+				"name": "BillingDate",
+				"type": "date"
+			},
+			{
+				"name": "Amount",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "Discount",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "Tax",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "FinalAmount",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "PaymentMethod",
+				"type": "varchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "BillsBad"
+		}
+	}
+}
