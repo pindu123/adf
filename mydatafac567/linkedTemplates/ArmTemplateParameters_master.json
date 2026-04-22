@@ -8,6 +8,12 @@
 		"AzureDataLakeStorage1_accountKey": {
 			"value": ""
 		},
+		"AzureDataLakeStorage22_accountKey": {
+			"value": ""
+		},
+		"AzureDataLakeStorage23_accountKey": {
+			"value": ""
+		},
 		"AzureSql_password": {
 			"value": ""
 		},
@@ -17,8 +23,20 @@
 		"AzureSqlDatabase2_password": {
 			"value": ""
 		},
+		"AzureSqlDatabase3_password": {
+			"value": ""
+		},
+		"AzureSqlDatabase4_password": {
+			"value": ""
+		},
 		"AzureDataLakeStorage1_properties_typeProperties_url": {
 			"value": "https://strgacc670.dfs.core.windows.net/"
+		},
+		"AzureDataLakeStorage22_properties_typeProperties_url": {
+			"value": "https://mystorage56784.dfs.core.windows.net/"
+		},
+		"AzureDataLakeStorage23_properties_typeProperties_url": {
+			"value": "https://mystorage56784.dfs.core.windows.net/"
 		},
 		"AzureSql_properties_typeProperties_server": {
 			"value": "sqlserver12349.database.windows.net"
@@ -45,6 +63,24 @@
 			"value": "mydb908"
 		},
 		"AzureSqlDatabase2_properties_typeProperties_userName": {
+			"value": "rootuser"
+		},
+		"AzureSqlDatabase3_properties_typeProperties_server": {
+			"value": "xyz874.database.windows.net"
+		},
+		"AzureSqlDatabase3_properties_typeProperties_database": {
+			"value": "abcdef"
+		},
+		"AzureSqlDatabase3_properties_typeProperties_userName": {
+			"value": "rootuser"
+		},
+		"AzureSqlDatabase4_properties_typeProperties_server": {
+			"value": "myserver789543.database.windows.net"
+		},
+		"AzureSqlDatabase4_properties_typeProperties_database": {
+			"value": "mydb"
+		},
+		"AzureSqlDatabase4_properties_typeProperties_userName": {
 			"value": "rootuser"
 		},
 		"NewFileArrivalTrigger_properties_PL_MappingDataFlow_parameters_FileName1": {
