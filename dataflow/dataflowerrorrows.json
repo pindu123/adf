@@ -1,5 +1,5 @@
 {
-	"name": "dataflow3",
+	"name": "dataflowerrorrows",
 	"properties": {
 		"type": "MappingDataFlow",
 		"typeProperties": {
@@ -15,14 +15,14 @@
 			"sinks": [
 				{
 					"dataset": {
-						"referenceName": "AzureSqlTable11",
+						"referenceName": "AzureSqlTable12",
 						"type": "DatasetReference"
 					},
 					"name": "sink1"
 				},
 				{
 					"dataset": {
-						"referenceName": "AzureSqlTable12",
+						"referenceName": "AzureSqlTable11",
 						"type": "DatasetReference"
 					},
 					"name": "sink2"
@@ -48,9 +48,9 @@
 				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     ignoreNoFilesFound: false) ~> source1",
-				"source1 split(isDate(toString(BillingDate), 'yyyy-mm-dd') && isNull(BillingID) && isNull(SubscriptionID)&&isNull(CustomerID)&&isNull(Amount)&&isNull(Discount)&&isNull(Tax)&&isNull(FinalAmount)&&isNull(PaymentMethod),",
-				"     disjoint: false) ~> split1@(errorrows, good)",
-				"split1@errorrows sink(allowSchemaDrift: true,",
+				"source1 split(isDate(toString(BillingDate), 'yyyy-mm-dd') || isNull(BillingID) || isNull(SubscriptionID) || isNull(CustomerID) || isNull(Amount) || isNull(Discount) || isNull(Tax) || isNull(FinalAmount) || isNull(PaymentMethod),",
+				"     disjoint: false) ~> split1@(good, errrows)",
+				"split1@good sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     input(",
 				"          BillingID as string,",
@@ -71,7 +71,7 @@
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true,",
 				"     errorHandlingOption: 'stopOnFirstError') ~> sink1",
-				"split1@good sink(allowSchemaDrift: true,",
+				"split1@errrows sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     input(",
 				"          BillingID as string,",
