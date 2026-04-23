@@ -1,0 +1,59 @@
+{
+	"name": "DelimitedText8",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureDataLakeStorage22",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileSystem": "input"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "BillingID",
+				"type": "String"
+			},
+			{
+				"name": "SubscriptionID",
+				"type": "String"
+			},
+			{
+				"name": "CustomerID",
+				"type": "String"
+			},
+			{
+				"name": "BillingDate",
+				"type": "String"
+			},
+			{
+				"name": "Amount",
+				"type": "String"
+			},
+			{
+				"name": "Discount",
+				"type": "String"
+			},
+			{
+				"name": "Tax",
+				"type": "String"
+			},
+			{
+				"name": "FinalAmount",
+				"type": "String"
+			},
+			{
+				"name": "PaymentMethod",
+				"type": "String"
+			}
+		]
+	}
+}
