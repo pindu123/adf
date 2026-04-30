@@ -24,9 +24,6 @@
 			"transformations": [
 				{
 					"name": "aggregate1"
-				},
-				{
-					"name": "select1"
 				}
 			],
 			"scriptLines": [
@@ -43,13 +40,8 @@
 				"     validateSchema: false,",
 				"     ignoreNoFilesFound: false) ~> source1",
 				"source1 aggregate(groupBy(OrderID),",
-				"     each(match(true()), $$ = first($$))) ~> aggregate1",
-				"aggregate1 select(mapColumn(",
-				"          OrderID = aggregate1@OrderID",
-				"     ),",
-				"     skipDuplicateMapInputs: true,",
-				"     skipDuplicateMapOutputs: true) ~> select1",
-				"select1 sink(allowSchemaDrift: true,",
+				"     each(match(name!='OrderID'), $$ = first($$))) ~> aggregate1",
+				"aggregate1 sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     input(",
 				"          ID as string,",
