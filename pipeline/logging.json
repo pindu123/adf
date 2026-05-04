@@ -1,0 +1,23 @@
+{
+	"name": "logging",
+	"properties": {
+		"parameters": {
+			"pipelineName": {
+				"type": "string"
+			},
+			"runId": {
+				"type": "string"
+			},
+			"triggerTime": {
+				"type": "string"
+			},
+			"status": {
+				"type": "string"
+			},
+			"message": {
+				"type": "string"
+			}
+		},
+		"annotations": []
+	}
+}
