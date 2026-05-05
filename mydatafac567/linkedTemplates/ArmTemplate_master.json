@@ -281,6 +281,26 @@
 				"parameters": {
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'mydatafac567_ArmTemplate_1')]"
+			]
+		},
+		{
+			"name": "mydatafac567_ArmTemplate_3",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_3.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
 					},
 					"incrementalStorageTrigger_properties_incrementalDataLoadDifferentFiles_parameters_pfolder": {
 						"value": "[parameters('incrementalStorageTrigger_properties_incrementalDataLoadDifferentFiles_parameters_pfolder')]"
@@ -306,7 +326,7 @@
 				}
 			},
 			"dependsOn": [
-				"[resourceId('Microsoft.Resources/deployments', 'mydatafac567_ArmTemplate_1')]"
+				"[resourceId('Microsoft.Resources/deployments', 'mydatafac567_ArmTemplate_2')]"
 			]
 		}
 	]
