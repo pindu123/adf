@@ -1,0 +1,26 @@
+{
+	"name": "watermarkJSOn",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureDataLakeStorage22",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "empty.json",
+				"fileSystem": "input"
+			}
+		},
+		"schema": {
+			"type": "object",
+			"properties": {
+				"LastModifiedDate": {
+					"type": "string"
+				}
+			}
+		}
+	}
+}
