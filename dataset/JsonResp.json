@@ -1,0 +1,26 @@
+{
+	"name": "JsonResp",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "HttpServer1",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"urlpath": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "HttpServerLocation",
+				"relativeUrl": {
+					"value": "@dataset().urlpath",
+					"type": "Expression"
+				}
+			}
+		},
+		"schema": {}
+	}
+}
